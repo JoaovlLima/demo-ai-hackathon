@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Hull | Transpetro Monitor</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>ECO-HULL</h2>
+            <p>System v1.0</p>
+        </div>
+        <nav>
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Frota</a>
+            <a href="#">Relatórios</a>
+            <a href="#">Configurações</a>
+        </nav>
+        
+        <div class="demo-controls">
+            <p>Controle de Demo</p>
+            <button onclick="setMode('normal')" class="btn-clean">Simular Limpo</button>
+            <button onclick="setMode('critical')" class="btn-dirty">Simular Cracas</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h1>Monitoramento em Tempo Real</h1>
+            <div class="ship-info">
+                <span>Navio: <strong>RAFAEL SANTOS (Suezmax)</strong></span>
+                <span>Status Conexão: <span class="dot online"></span> Online</span>
+            </div>
+        </header>
+
+        <div class="kpi-grid">
+            <div class="card">
+                <h3>Status do Casco</h3>
+                <div id="status-indicator" class="status-badge green">ANALISANDO...</div>
+            </div>
+            <div class="card">
+                <h3>Vibração (Sensor Piezo)</h3>
+                <div class="big-number" id="vibration-val">0.0</div>
+            </div>
+            <div class="card">
+                <h3>Prejuízo Diário Est.</h3>
+                <div class="big-number money" id="money-val">$0.00</div>
+            </div>
+            <div class="card">
+                <h3>Eficiência Hidrodinâmica</h3>
+                <div class="big-number" id="efficiency-val">100%</div>
+            </div>
+        </div>
+
+        <div class="dashboard-split">
+            <div class="card hull-view" style="text-align: center;">
+                <h3>Análise de Anomalia (Isolation Forest)</h3>
+                <p style="font-size: 0.9em; color: gray; margin-bottom: 10px;">
+                    Eixo X: Vibração (RMS) | Eixo Y: Turbulência (Curtose)
+                </p>
+                <img id="python-plot" src="" alt="Aguardando dados da IA..." style="max-width: 100%; height: auto; border-radius: 8px;">
+            </div>
+
+            <div class="card chart-view">
+                <h3>Tendência Temporal</h3>
+                <canvas id="sensorChart"></canvas>
+            </div>
+        </div>
+
+            <div class="card chart-view">
+                <h3>Histórico de Vibração</h3>
+                <canvas id="sensorChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

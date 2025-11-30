@@ -1,0 +1,141 @@
+:root {
+    --petro-green: #008542;
+    --petro-yellow: #FFC20E;
+    --petro-blue: #002A40;
+    --alert-red: #DC2626;
+    --bg-light: #F1F5F9;
+    --white: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    display: flex;
+    height: 100vh;
+    color: var(--petro-blue);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--petro-blue);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 15px 10px;
+    margin: 5px 0;
+    border-radius: 6px;
+}
+
+.sidebar nav a.active {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--petro-yellow);
+    font-weight: bold;
+}
+
+/* Demo Buttons */
+.demo-controls {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.btn-clean { background: var(--petro-green); border: none; color: white; padding: 10px; width: 100%; margin-bottom: 5px; cursor: pointer; border-radius: 4px;}
+.btn-dirty { background: var(--alert-red); border: none; color: white; padding: 10px; width: 100%; cursor: pointer; border-radius: 4px;}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Cards */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.big-number { font-size: 2em; font-weight: bold; margin-top: 10px; }
+.money { color: var(--alert-red); }
+
+/* Status Badges */
+.status-badge {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.green { background-color: var(--petro-green); }
+.red { background-color: var(--alert-red); }
+
+/* Visual do Navio (CSS Puro) */
+.ship-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #e2e8f0;
+    border-radius: 8px;
+}
+
+.ship-shape {
+    width: 600px;
+    height: 180px;
+    background: #cbd5e1;
+    border-radius: 50% 100% 100% 50% / 100% 20% 20% 100%; /* Formato de casco visto de cima */
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    border: 4px solid #475569;
+}
+
+/* Zonas do Sensor (Mudam de cor) */
+.sensor-zone {
+    height: 100%;
+    transition: background-color 0.5s ease;
+    opacity: 0.6;
+}
+.proa { width: 25%; border-right: 1px dashed white;}
+.meio { width: 50%; border-right: 1px dashed white;}
+.popa { width: 25%; }
+
+/* Animação de Alerta */
+.zone-alert {
+    background-color: var(--alert-red) !important;
+    animation: pulse 1s infinite;
+}
+.zone-clean {
+    background-color: var(--petro-green) !important;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
